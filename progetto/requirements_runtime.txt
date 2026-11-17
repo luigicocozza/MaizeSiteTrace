@@ -1,0 +1,13 @@
+pandas
+numpy
+PyYAML
+requests
+scikit-learn
+matplotlib
+streamlit
+fastapi
+uvicorn
+pydantic
+torch
+torch-geometric
+biopython

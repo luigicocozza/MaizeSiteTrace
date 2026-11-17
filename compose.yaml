@@ -1,0 +1,784 @@
+{
+  "name": "ai_primetta_v33_windows",
+  "services": {
+    "maize-ncrna-gnn": {
+      "command": [
+        "/app/docker/start_services.sh"
+      ],
+      "entrypoint": null,
+      "ports": [
+        {
+          "target": 8501,
+          "published": "8503",
+          "host_ip": "127.0.0.1"
+        },
+        {
+          "target": 8000,
+          "published": "8000",
+          "host_ip": "127.0.0.1"
+        }
+      ],
+      "restart": "unless-stopped",
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "./progetto/09_explore_graph_features.py",
+          "target": "/app/09_explore_graph_features.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/43_screen_srna_drought_response.py",
+          "target": "/app/43_screen_srna_drought_response.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/00d_fetch_more_rnacentral_maize.py",
+          "target": "/app/00d_fetch_more_rnacentral_maize.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/05_validate_outputs.py",
+          "target": "/app/05_validate_outputs.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/07_build_ncrna_features.py",
+          "target": "/app/07_build_ncrna_features.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/12_build_exploratory_ncrna_ranking.py",
+          "target": "/app/12_build_exploratory_ncrna_ranking.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/13_build_methodological_report.py",
+          "target": "/app/13_build_methodological_report.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/60_train_srna_supervised_ml_candidate_labels.py",
+          "target": "/app/60_train_srna_supervised_ml_candidate_labels.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/data/user_data",
+          "target": "/app/data/user_data",
+          "read_only": false,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/41_qc_trimmed_prjna419326_mirnaseq.py",
+          "target": "/app/41_qc_trimmed_prjna419326_mirnaseq.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/04_build_maize_labels.py",
+          "target": "/app/04_build_maize_labels.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/21_build_scientific_manuscript_draft.py",
+          "target": "/app/21_build_scientific_manuscript_draft.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/27_link_user_data_to_ranking.py",
+          "target": "/app/27_link_user_data_to_ranking.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/35_download_prjna419326_mirnaseq.py",
+          "target": "/app/35_download_prjna419326_mirnaseq.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/20_build_final_technical_report.py",
+          "target": "/app/20_build_final_technical_report.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/42_collapse_trimmed_reads_build_count_matrix.py",
+          "target": "/app/42_collapse_trimmed_reads_build_count_matrix.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/51_train_v3_graph_autoencoder.py",
+          "target": "/app/51_train_v3_graph_autoencoder.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/58_rnaseq_gene_drought_de_screening.py",
+          "target": "/app/58_rnaseq_gene_drought_de_screening.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/data/processed",
+          "target": "/app/data/processed",
+          "read_only": false,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/docs",
+          "target": "/app/docs",
+          "read_only": false,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/23_build_submission_materials.py",
+          "target": "/app/23_build_submission_materials.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/28_build_user_rag_knowledge.py",
+          "target": "/app/28_build_user_rag_knowledge.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/61_train_srna_supervised_ml_antileakage_check.py",
+          "target": "/app/61_train_srna_supervised_ml_antileakage_check.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/38_light_qc_prjna419326_mirnaseq_fastq.py",
+          "target": "/app/38_light_qc_prjna419326_mirnaseq_fastq.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/39_detect_mirnaseq_adapter_candidates.py",
+          "target": "/app/39_detect_mirnaseq_adapter_candidates.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/46_generate_prjna419326_v3_methodological_report.py",
+          "target": "/app/46_generate_prjna419326_v3_methodological_report.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/52_prepare_prjna419326_rnaseq_download_plan.py",
+          "target": "/app/52_prepare_prjna419326_rnaseq_download_plan.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/56_prepare_maize_reference_for_rnaseq_quant.py",
+          "target": "/app/56_prepare_maize_reference_for_rnaseq_quant.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/57_quantify_prjna419326_rnaseq_salmon.py",
+          "target": "/app/57_quantify_prjna419326_rnaseq_salmon.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/48_inspect_v3_graph_inputs.py",
+          "target": "/app/48_inspect_v3_graph_inputs.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/48b_inspect_pyg_pt_content.py",
+          "target": "/app/48b_inspect_pyg_pt_content.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/outputs",
+          "target": "/app/outputs",
+          "read_only": false,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/00_download_public_data.py",
+          "target": "/app/00_download_public_data.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/00b_inspect_raw_downloads.py",
+          "target": "/app/00b_inspect_raw_downloads.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/17_validate_end_to_end.py",
+          "target": "/app/17_validate_end_to_end.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/18_build_final_project_package.py",
+          "target": "/app/18_build_final_project_package.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/22_add_references_to_manuscript.py",
+          "target": "/app/22_add_references_to_manuscript.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/29_user_rag_chat.py",
+          "target": "/app/29_user_rag_chat.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/44_map_srna_top500_to_rnacentral_sequences.py",
+          "target": "/app/44_map_srna_top500_to_rnacentral_sequences.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/06_build_graph_tables.py",
+          "target": "/app/06_build_graph_tables.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/10_build_unsupervised_embeddings.py",
+          "target": "/app/10_build_unsupervised_embeddings.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/40_trim_all_prjna419326_mirnaseq.py",
+          "target": "/app/40_trim_all_prjna419326_mirnaseq.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/55_validate_prjna419326_rnaseq_postdownload.py",
+          "target": "/app/55_validate_prjna419326_rnaseq_postdownload.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/62b_update_gui_project_realization_identity.py",
+          "target": "/app/62b_update_gui_project_realization_identity.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/03_build_maize_known_edges.py",
+          "target": "/app/03_build_maize_known_edges.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/08_build_pyg_dataset.py",
+          "target": "/app/08_build_pyg_dataset.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/30_build_v2_experimental_package.py",
+          "target": "/app/30_build_v2_experimental_package.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/36_download_prjna419326_mirnaseq_aria2.py",
+          "target": "/app/36_download_prjna419326_mirnaseq_aria2.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/54_download_prjna419326_rnaseq_aria2_validated.py",
+          "target": "/app/54_download_prjna419326_rnaseq_aria2_validated.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/47_build_v3_prjna419326_final_package.py",
+          "target": "/app/47_build_v3_prjna419326_final_package.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/16_rag_chat_engine.py",
+          "target": "/app/16_rag_chat_engine.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/19_build_software_user_guide_pdf.py",
+          "target": "/app/19_build_software_user_guide_pdf.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/37_validate_prjna419326_mirnaseq_fastq.py",
+          "target": "/app/37_validate_prjna419326_mirnaseq_fastq.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/62_build_v3_final_report_and_candidate_table.py",
+          "target": "/app/62_build_v3_final_report_and_candidate_table.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/docker/runtime_v32_patch/01_Rete_neurale_GAE_latest.py",
+          "target": "/app/app/pages/01_Rete_neurale_GAE.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/00c_profile_json_sources.py",
+          "target": "/app/00c_profile_json_sources.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/01_build_maize_sequences.py",
+          "target": "/app/01_build_maize_sequences.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/11_build_ncrna_similarity_search.py",
+          "target": "/app/11_build_ncrna_similarity_search.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/24_final_delivery_check.py",
+          "target": "/app/24_final_delivery_check.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/31_generate_v2_guide_pdf.py",
+          "target": "/app/31_generate_v2_guide_pdf.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/45_build_prjna419326_experimental_srna_ranking.py",
+          "target": "/app/45_build_prjna419326_experimental_srna_ranking.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/docker/runtime_v32_patch/api_main_rag_v32.py",
+          "target": "/app/api/main.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/logs",
+          "target": "/app/logs",
+          "read_only": false,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/15_build_rag_knowledge_base.py",
+          "target": "/app/15_build_rag_knowledge_base.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/26_validate_user_dataset.py",
+          "target": "/app/26_validate_user_dataset.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/48c_inspect_pyg_metadata_and_tables.py",
+          "target": "/app/48c_inspect_pyg_metadata_and_tables.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/models",
+          "target": "/app/models",
+          "read_only": false,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/49_build_v3_integrated_pyg_graph.py",
+          "target": "/app/49_build_v3_integrated_pyg_graph.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/33_analyze_prjna419326_metadata.py",
+          "target": "/app/33_analyze_prjna419326_metadata.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/50_validate_v3_graph_before_gae.py",
+          "target": "/app/50_validate_v3_graph_before_gae.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/53_inspect_prjna419326_rnaseq_download_plan.py",
+          "target": "/app/53_inspect_prjna419326_rnaseq_download_plan.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/59_integrate_srna_rnaseq_generate_supervised_labels.py",
+          "target": "/app/59_integrate_srna_rnaseq_generate_supervised_labels.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/docker/runtime_v32_patch/25_train_graph_autoencoder_safe.py",
+          "target": "/app/25_train_graph_autoencoder.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/32_fetch_prjna419326_metadata.py",
+          "target": "/app/32_fetch_prjna419326_metadata.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/34_create_prjna419326_experimental_design.py",
+          "target": "/app/34_create_prjna419326_experimental_design.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/02_build_maize_expression_summary.py",
+          "target": "/app/02_build_maize_expression_summary.py",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ],
+      "image": "ai-primetta-export/v32:e4a9fcdbbfec",
+      "platform": "linux/amd64",
+      "environment": {
+        "PATH": "/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "LANG": "C.UTF-8",
+        "GPG_KEY": "A035C8C19219BA821ECEA86B64E628F8D684696D",
+        "PYTHON_VERSION": "3.11.17",
+        "PYTHON_SHA256": "bfb74ad39efae27cda510f134ab408e00f9992c56851cfc0b1cdb5646da11599",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONUNBUFFERED": "1",
+        "STREAMLIT_SERVER_HEADLESS": "true",
+        "STREAMLIT_BROWSER_GATHER_USAGE_STATS": "false",
+        "PIP_DISABLE_PIP_VERSION_CHECK": "1",
+        "PIP_NO_CACHE_DIR": "1",
+        "CUDA_VISIBLE_DEVICES": "-1"
+      }
+    },
+    "prediction": {
+      "command": [
+        "streamlit",
+        "run",
+        "/app/app_v33.py",
+        "--server.address=0.0.0.0",
+        "--server.port=8502",
+        "--server.headless=true",
+        "--server.maxUploadSize=250"
+      ],
+      "entrypoint": null,
+      "ports": [
+        {
+          "target": 8502,
+          "published": "8502",
+          "host_ip": "127.0.0.1"
+        }
+      ],
+      "restart": "unless-stopped",
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "./progetto/.",
+          "target": "/app/original_project",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/target_prediction_v33_vscode/references",
+          "target": "/app/references",
+          "read_only": true,
+          "bind": {
+            "create_host_path": false
+          }
+        },
+        {
+          "type": "bind",
+          "source": "./progetto/target_prediction_v33_vscode/runs",
+          "target": "/app/runs",
+          "read_only": false,
+          "bind": {
+            "create_host_path": false
+          }
+        }
+      ],
+      "image": "ai-primetta-export/v33:e4a9fcdbbfec",
+      "platform": "linux/amd64",
+      "environment": {
+        "PATH": "/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "LANG": "C.UTF-8",
+        "GPG_KEY": "A035C8C19219BA821ECEA86B64E628F8D684696D",
+        "PYTHON_VERSION": "3.11.17",
+        "PYTHON_SHA256": "bfb74ad39efae27cda510f134ab408e00f9992c56851cfc0b1cdb5646da11599"
+      }
+    }
+  }
+}

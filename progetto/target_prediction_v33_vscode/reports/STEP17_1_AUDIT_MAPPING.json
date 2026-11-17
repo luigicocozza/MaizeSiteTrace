@@ -1,0 +1,77 @@
+{
+  "step": "17.1",
+  "trascritti_normalizzati": 72539,
+  "mapping_trovati": [
+    {
+      "file": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/data/reference/zea_mays_ensembl_plants/Zea_mays.Zm-B73-REFERENCE-NAM-5.0.tx2gene.tsv",
+      "righe": 77342,
+      "trascritti_distinti_colonna_1": 77342,
+      "coincidenze_con_trascrittoma": 72539,
+      "copertura_trascritti_percento": 100.0,
+      "esempi": [
+        [
+          "transcript_id",
+          "gene_id",
+          "gene_biotype"
+        ],
+        [
+          "Zm00001eb096110_T001",
+          "Zm00001eb096110",
+          "protein_coding"
+        ],
+        [
+          "Zm00001eb321680_T001",
+          "Zm00001eb321680",
+          "protein_coding"
+        ]
+      ],
+      "nota": "Controllo esplorativo: si presume che la prima colonna contenga ID trascritti."
+    },
+    {
+      "file": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/target_prediction_v33_vscode/demo/tx2gene.tsv",
+      "righe": 2,
+      "trascritti_distinti_colonna_1": 2,
+      "coincidenze_con_trascrittoma": 0,
+      "copertura_trascritti_percento": 0.0,
+      "esempi": [
+        [
+          "transcript_id",
+          "gene_id"
+        ],
+        [
+          "TX_TEST_001",
+          "GENE_TEST_001"
+        ]
+      ],
+      "nota": "Controllo esplorativo: si presume che la prima colonna contenga ID trascritti."
+    },
+    {
+      "file": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/target_prediction_v33_vscode/references/Zea_mays.Zm-B73-REFERENCE-NAM-5.0.tx2gene.tsv",
+      "righe": 77342,
+      "trascritti_distinti_colonna_1": 77342,
+      "coincidenze_con_trascrittoma": 72539,
+      "copertura_trascritti_percento": 100.0,
+      "esempi": [
+        [
+          "transcript_id",
+          "gene_id",
+          "gene_biotype"
+        ],
+        [
+          "Zm00001eb096110_T001",
+          "Zm00001eb096110",
+          "protein_coding"
+        ],
+        [
+          "Zm00001eb321680_T001",
+          "Zm00001eb321680",
+          "protein_coding"
+        ]
+      ],
+      "nota": "Controllo esplorativo: si presume che la prima colonna contenga ID trascritti."
+    }
+  ],
+  "step16_script": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/scripts/step_16_test_5_srna_reali_v33.py",
+  "motore": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/target_prediction_v33_vscode/app_v33.py",
+  "mapping_effettivo_step16_verificato": false
+}

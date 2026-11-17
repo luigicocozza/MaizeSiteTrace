@@ -1,0 +1,5 @@
+FROM ai_primetta_v32_full_ai_cpu:22.6d
+USER root
+ENV PIP_DISABLE_PIP_VERSION_CHECK=1 PIP_NO_CACHE_DIR=1
+RUN python3 -m pip install --no-cache-dir --no-deps "scikit-learn==1.8.0"
+USER root

@@ -1,0 +1,443 @@
+project:
+  name: "maize_drought_ncrna_gnn"
+  italian_title: "Framework AI/GNN per la prioritizzazione di ncRNA coinvolti nella risposta alla siccità nel mais"
+  english_title: "Knowledge-guided graph AI framework for prioritizing drought-responsive ncRNAs in maize"
+  version: "0.1.0"
+  owner: "Luigi Cocozza"
+  objective: >
+    Costruire una pipeline bioinformatica e di intelligenza artificiale per integrare
+    dati pubblici su ncRNA, annotazioni genomiche, letteratura scientifica,
+    pathway e risposta alla siccità nel mais, con costruzione di un grafo biologico
+    e addestramento di una Graph Neural Network per prioritizzare candidati ncRNA.
+  primary_journal_target: "Computers and Electronics in Agriculture"
+  secondary_journal_target: "Artificial Intelligence in Agriculture"
+
+paths:
+  root: "."
+  raw_data: "data/raw"
+  interim_data: "data/interim"
+  processed_data: "data/processed"
+  logs: "logs"
+  outputs: "outputs"
+  models: "models"
+  figures: "outputs/figures"
+  tables: "outputs/tables"
+  reports: "outputs/reports"
+
+runtime:
+  python_env: ".venv"
+  bioinformatics_env: "rnaseq_tools"
+  operating_system: "Ubuntu VirtualBox"
+  ide: "Visual Studio Code"
+  random_seed: 42
+  device_preference: "auto"
+  num_workers: 2
+
+scope:
+  species:
+    common_name: "maize"
+    italian_name: "mais"
+    scientific_name: "Zea mays"
+    ncbi_taxon_id: 4577
+    ensembl_species_name: "zea_mays"
+    crop_group: "cereal"
+  biological_focus:
+    molecule_type: "non-coding RNA"
+    target_classes:
+      - "lncRNA"
+      - "miRNA"
+      - "circRNA"
+      - "snoRNA"
+      - "snRNA"
+      - "tRNA-derived RNA"
+      - "other ncRNA"
+    stress_condition: "drought"
+    stress_keywords:
+      - "drought"
+      - "drought stress"
+      - "water deficit"
+      - "water stress"
+      - "dehydration"
+      - "osmotic stress"
+      - "abscisic acid"
+      - "ABA response"
+      - "root drought response"
+      - "leaf drought response"
+      - "stomatal regulation"
+      - "root architecture"
+
+tools:
+  fastqc: "fastqc"
+  trimmomatic: "trimmomatic"
+  hisat2: "hisat2"
+  stringtie: "/usr/bin/stringtie"
+  samtools: "samtools"
+  blastn: "blastn"
+  seqkit: "seqkit"
+  datasets: "datasets"
+  dataformat: "dataformat"
+  java: "java"
+
+logging:
+  level: "INFO"
+  log_to_file: true
+  log_file: "logs/pipeline.log"
+
+sources:
+  - name: "RNAcentral"
+    enabled: true
+    category: "ncRNA_reference"
+    access_type: "api_and_ftp"
+    url: "https://rnacentral.org/api/v1/rna/"
+    output_filename: "rnacentral_maize_ncrna.json"
+    description: "Backbone principale per identificativi, sequenze e annotazioni ncRNA."
+
+  - name: "Rfam"
+    enabled: true
+    category: "ncRNA_family"
+    access_type: "web_or_ftp"
+    url: "https://rfam.org/"
+    output_filename: "rfam_maize_families_metadata.json"
+    description: "Famiglie strutturali e funzionali di RNA non codificanti."
+
+  - name: "miRBase"
+    enabled: true
+    category: "miRNA_reference"
+    access_type: "web_or_ftp"
+    url: "https://www.mirbase.org/"
+    output_filename: "mirbase_maize_metadata.json"
+    description: "Riferimento per miRNA maturi e precursori."
+
+  - name: "NONCODE"
+    enabled: true
+    category: "lncRNA_reference"
+    access_type: "web"
+    url: "http://www.noncode.org/"
+    output_filename: "noncode_maize_metadata.json"
+    description: "Riferimento per long non-coding RNA."
+
+  - name: "Ensembl Plants"
+    enabled: true
+    category: "genome_annotation"
+    access_type: "rest_and_ftp"
+    url: "https://plants.ensembl.org/Zea_mays/Info/Index"
+    output_filename: "ensembl_plants_zea_mays_metadata.json"
+    description: "Annotazioni genomiche e geni codificanti del mais."
+
+  - name: "MaizeGDB"
+    enabled: true
+    category: "maize_genetics_genomics"
+    access_type: "web"
+    url: "https://www.maizegdb.org/"
+    output_filename: "maizegdb_metadata.json"
+    description: "Database comunitario per genetica e genomica del mais."
+
+  - name: "NCBI_GEO"
+    enabled: true
+    category: "expression_datasets"
+    access_type: "api"
+    url: "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
+    output_filename: "ncbi_geo_maize_drought_search.json"
+    description: "Ricerca dataset pubblici di espressione/RNA-seq su mais e siccità."
+
+  - name: "Europe_PMC"
+    enabled: true
+    category: "literature_retrieval"
+    access_type: "api"
+    url: "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
+    output_filename: "europe_pmc_maize_drought_ncrna.json"
+    description: "Recupero letteratura su ncRNA, mais e risposta alla siccità."
+
+  - name: "QuickGO"
+    enabled: true
+    category: "go_annotation"
+    access_type: "api"
+    url: "https://www.ebi.ac.uk/QuickGO/services/annotation/search"
+    output_filename: "quickgo_maize_drought_annotations.json"
+    description: "Annotazioni Gene Ontology collegate a geni e processi biologici."
+
+reference_databases:
+  rnacentral:
+    enabled: true
+    role: "primary_ncRNA_backbone"
+    species_filter: "Zea mays"
+    taxon_id: 4577
+    use_for:
+      - "ncRNA identifiers"
+      - "sequence retrieval"
+      - "cross-references"
+      - "annotation harmonization"
+
+  rfam:
+    enabled: true
+    role: "ncRNA_family_annotation"
+    use_for:
+      - "RNA family"
+      - "structural class"
+      - "functional class"
+
+  mirbase:
+    enabled: true
+    role: "miRNA_annotation"
+    use_for:
+      - "known maize miRNAs"
+      - "miRNA family"
+      - "miRNA precursor annotation"
+
+  noncode:
+    enabled: true
+    role: "lncRNA_annotation"
+    use_for:
+      - "lncRNA evidence"
+      - "lncRNA identifiers"
+
+  ensembl_plants:
+    enabled: true
+    role: "genome_gene_annotation"
+    species: "Zea mays"
+    use_for:
+      - "gene annotation"
+      - "gene coordinates"
+      - "gene identifiers"
+      - "orthology when useful"
+
+  maizegdb:
+    enabled: true
+    role: "maize_specific_knowledge"
+    use_for:
+      - "maize gene information"
+      - "genetic evidence"
+      - "trait and phenotype links"
+
+  ncbi_geo_sra:
+    enabled: true
+    role: "expression_public_datasets"
+    search_query: '("Zea mays" OR maize) AND (drought OR "water deficit" OR "water stress") AND ("RNA-seq" OR transcriptome)'
+    use_for:
+      - "public drought expression datasets"
+      - "independent validation"
+      - "metadata extraction"
+
+  europe_pmc:
+    enabled: true
+    role: "literature_evidence"
+    search_query: '("Zea mays" OR maize) AND (drought OR "water deficit" OR "water stress") AND (ncRNA OR lncRNA OR miRNA OR "non-coding RNA")'
+    use_for:
+      - "literature support"
+      - "candidate explanation"
+      - "drought evidence"
+
+  quickgo:
+    enabled: true
+    role: "functional_annotation"
+    use_for:
+      - "GO terms"
+      - "biological processes"
+      - "stress-related functional evidence"
+
+training_data_strategy:
+  label_type: "proxy_labels"
+  positive_evidence:
+    - "ncRNA or gene associated with drought-related literature"
+    - "ncRNA or target gene linked to drought stress, water deficit, ABA response or osmotic stress"
+    - "significant differential expression under drought when expression data are available"
+    - "association with drought-related GO terms or pathways"
+    - "known miRNA or lncRNA reported in maize stress response"
+  negative_evidence:
+    - "no drought-related evidence in selected sources"
+    - "no stress-related annotation"
+    - "not connected to drought-related genes, pathways or literature"
+  warning: >
+    Le label sono proxy labels derivate da evidenze pubbliche e regole biologiche.
+    Non devono essere interpretate come verità sperimentale definitiva.
+
+preprocessing:
+  sequence_filters:
+    min_length: 18
+    max_length: 10000
+    remove_ambiguous_sequences: true
+    allowed_alphabet: "ACGTUNacgtun"
+  expression_filters:
+    min_samples_per_condition: 2
+    conditions:
+      - "control"
+      - "drought"
+      - "water_deficit"
+      - "water_stress"
+    differential_expression:
+      log2fc_threshold: 1.0
+      adjusted_pvalue_threshold: 0.05
+
+feature_engineering:
+  sequence_features:
+    - "length"
+    - "gc_content"
+    - "nucleotide_composition"
+    - "kmer_features"
+  annotation_features:
+    - "ncRNA_type"
+    - "database_evidence_count"
+    - "rfam_family"
+    - "mirbase_presence"
+    - "noncode_presence"
+  expression_features:
+    - "mean_expression_control"
+    - "mean_expression_drought"
+    - "log2_fold_change"
+    - "adjusted_pvalue"
+  graph_features:
+    - "degree"
+    - "neighbor_type_counts"
+    - "drought_neighbor_count"
+    - "pathway_neighbor_count"
+  literature_features:
+    - "drought_publication_count"
+    - "stress_keyword_count"
+    - "europe_pmc_hit_count"
+
+labeling:
+  output_file: "data/processed/maize_labels.csv"
+  positive_label: 1
+  negative_label: 0
+  unknown_label: -1
+  minimum_positive_evidence_count: 2
+  minimum_negative_confidence: 1
+  keep_unknowns_for_graph: true
+
+model:
+  task: "node_classification_and_candidate_ranking"
+  learning_setting: "supervised_with_semi_supervised_graph_context"
+  main_model: "Graph Neural Network"
+  candidate_models:
+    - "GraphSAGE"
+    - "GAT"
+    - "R-GCN"
+    - "Heterogeneous GNN"
+  baselines:
+    - "Logistic Regression"
+    - "Random Forest"
+    - "XGBoost"
+    - "MLP"
+    - "feature_only_model"
+    - "sequence_only_model"
+    - "graph_features_without_gnn"
+  metrics:
+    - "ROC_AUC"
+    - "AUPRC"
+    - "F1"
+    - "Precision@10"
+    - "Precision@50"
+    - "Recall@50"
+    - "NDCG@50"
+  train_val_test_split:
+    strategy: "stratified_when_possible"
+    train: 0.70
+    validation: 0.15
+    test: 0.15
+
+similarity_search:
+  enabled: true
+  engine: "FAISS"
+  embedding_source: "node_embeddings"
+  output_file: "outputs/similarity_hits.csv"
+  top_k: 20
+
+knowledge_retrieval:
+  enabled: true
+  sources:
+    - "RNAcentral"
+    - "Europe_PMC"
+    - "QuickGO"
+    - "MaizeGDB"
+    - "Ensembl Plants"
+  candidate_report:
+    enabled: true
+    top_k_candidates: 50
+    output_csv: "outputs/candidate_explanations.csv"
+    output_html: "outputs/reports/top_candidates_report.html"
+    output_docx: "outputs/reports/top_candidates_report.docx"
+
+rnaseq_processing:
+  enabled: true
+  mode: "optional_public_or_internal_validation"
+  aligner: "hisat2"
+  assembler: "stringtie"
+  quantification: "stringtie"
+  quality_control: "fastqc"
+  adapter_trimming: "trimmomatic"
+  sam_bam_tool: "samtools"
+  note: >
+    La componente RNA-seq è opzionale nella prima versione pubblicabile su dati pubblici,
+    ma fortemente consigliata per una validazione controllata CREA o dataset indipendente.
+
+pipeline_outputs:
+  initial_data:
+    maize_sequences: "data/processed/maize_sequences.fasta"
+    maize_expression_summary: "data/processed/maize_expression_summary.csv"
+    maize_known_edges: "data/processed/maize_known_edges.csv"
+    maize_labels: "data/processed/maize_labels.csv"
+  graph:
+    nodes: "data/processed/nodes.csv"
+    edges: "data/processed/edges.csv"
+    graph_data: "data/processed/graph_data.pt"
+    graph_statistics: "outputs/graph_statistics.json"
+  model:
+    trained_model: "models/gnn_model.pt"
+    train_history: "outputs/train_history.json"
+    validation_metrics: "outputs/val_metrics.json"
+    test_metrics: "outputs/test_metrics.json"
+    predictions: "outputs/node_predictions.csv"
+    candidate_ranking: "outputs/candidate_ranking.csv"
+    embeddings: "outputs/node_embeddings.csv"
+  publication:
+    figures_dir: "outputs/figures"
+    tables_dir: "outputs/tables"
+    manuscript_dir: "outputs/manuscript"
+    reproducibility_report: "outputs/reports/reproducibility_report.md"
+    data_manifest: "outputs/data_manifest.csv"
+
+quality_control:
+  validate_fasta: true
+  validate_csv_schema: true
+  check_missing_values: true
+  check_duplicate_ids: true
+  check_label_distribution: true
+  check_graph_connectivity: true
+  check_data_leakage: true
+
+reproducibility:
+  save_software_versions: true
+  save_command_history: true
+  save_config_snapshot: true
+  checksum_algorithm: "sha256"
+  create_data_manifest: true
+  create_model_card: true
+  create_data_card: true
+
+publication_strategy:
+  first_submission:
+    journal: "Computers and Electronics in Agriculture"
+    positioning: >
+      Presentare il lavoro come framework computazionale e AI riproducibile per agricoltura digitale,
+      resilienza alla siccità e supporto decisionale biologico nel mais.
+  second_submission:
+    journal: "Artificial Intelligence in Agriculture"
+    positioning: >
+      Presentare il lavoro come metodo di intelligenza artificiale basato su knowledge graph,
+      GNN e retrieval biologico per prioritizzazione di regolatori ncRNA in agricoltura.
+  required_outputs:
+    - "workflow_figure"
+    - "graph_schema_figure"
+    - "model_architecture_figure"
+    - "baseline_comparison_table"
+    - "ablation_study"
+    - "top_candidate_explanation_table"
+    - "reproducibility_report"
+    - "generative_ai_disclosure"
+
+notes:
+  - "Il progetto usa dati pubblici e non tratta dati personali."
+  - "Le label automatiche sono proxy labels e devono essere dichiarate chiaramente nel manoscritto."
+  - "La GNN è il motore predittivo principale del livello grafo."
+  - "La GUI con chat è interfaccia operatore e non sostituisce il modello predittivo."
+  - "Per rafforzare la submission a Computers and Electronics in Agriculture è consigliata una validazione controllata o un dataset RNA-seq indipendente."

@@ -1,0 +1,14 @@
+{
+  "services": {
+    "maize-ncrna-gnn": {
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/docker/runtime_v32_patch/25_train_graph_autoencoder_safe.py",
+          "target": "/app/25_train_graph_autoencoder.py",
+          "read_only": true
+        }
+      ]
+    }
+  }
+}

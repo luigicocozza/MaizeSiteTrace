@@ -1,0 +1,19 @@
+{
+  "services": {
+    "maize-ncrna-gnn": {
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/docker/runtime_v32_patch/api_main_rag_v32.py",
+          "target": "/app/api/main.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/data/user_data",
+          "target": "/app/data/user_data"
+        }
+      ]
+    }
+  }
+}

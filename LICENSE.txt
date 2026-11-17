@@ -1,0 +1,22 @@
+MaizeSiteTrace V3.3 - Software Use Only License
+
+1. Scope
+This license applies to the MaizeSiteTrace V3.3 software contained in the ZIP
+archive accompanying this file. Copyright remains with the respective rights
+holder(s).
+
+2. Permission to use
+Anyone who lawfully obtains the Software under this license is granted a
+royalty-free, non-exclusive right to download, install and run it for their
+own use, including making the copies reasonably necessary for those activities.
+
+3. Rights reserved
+Except as permitted by applicable law, modifying or adapting the Software,
+creating derivative versions, redistributing or republishing the Software or
+modified versions, selling copies, and sublicensing require prior written
+permission from the relevant rights holder(s).
+
+4. Third-party materials and statutory rights
+Third-party software, dependencies and data remain subject to their own
+license terms. Nothing in this license limits rights that applicable law
+does not allow the rights holder(s) to restrict.

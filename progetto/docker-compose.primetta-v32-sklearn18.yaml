@@ -1,0 +1,4 @@
+services:
+  maize-ncrna-gnn:
+    image: ai_primetta_v32_full_ai_sklearn18:22.6g
+    pull_policy: never

@@ -1,0 +1,5 @@
+# AI PRIMETTA V3.2 - Immagine completa
+services:
+  maize-ncrna-gnn:
+    image: ai_primetta_v32_full_ai_cpu:22.6d
+    pull_policy: never

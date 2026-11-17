@@ -1,0 +1,16 @@
+services:
+  maize-ncrna-gnn:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: maize_ncrna_gnn
+    ports:
+      - "8000:8000"
+      - "8501:8501"
+    volumes:
+      - ./outputs:/app/outputs
+      - ./data/processed:/app/data/processed
+      - ./models:/app/models
+      - ./docs:/app/docs
+      - ./logs:/app/logs
+    restart: unless-stopped

@@ -1,0 +1,416 @@
+{
+  "services": {
+    "maize-ncrna-gnn": {
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/00_download_public_data.py",
+          "target": "/app/00_download_public_data.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/00b_inspect_raw_downloads.py",
+          "target": "/app/00b_inspect_raw_downloads.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/00c_profile_json_sources.py",
+          "target": "/app/00c_profile_json_sources.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/00d_fetch_more_rnacentral_maize.py",
+          "target": "/app/00d_fetch_more_rnacentral_maize.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/01_build_maize_sequences.py",
+          "target": "/app/01_build_maize_sequences.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/02_build_maize_expression_summary.py",
+          "target": "/app/02_build_maize_expression_summary.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/03_build_maize_known_edges.py",
+          "target": "/app/03_build_maize_known_edges.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/04_build_maize_labels.py",
+          "target": "/app/04_build_maize_labels.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/05_validate_outputs.py",
+          "target": "/app/05_validate_outputs.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/06_build_graph_tables.py",
+          "target": "/app/06_build_graph_tables.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/07_build_ncrna_features.py",
+          "target": "/app/07_build_ncrna_features.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/08_build_pyg_dataset.py",
+          "target": "/app/08_build_pyg_dataset.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/09_explore_graph_features.py",
+          "target": "/app/09_explore_graph_features.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/10_build_unsupervised_embeddings.py",
+          "target": "/app/10_build_unsupervised_embeddings.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/11_build_ncrna_similarity_search.py",
+          "target": "/app/11_build_ncrna_similarity_search.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/12_build_exploratory_ncrna_ranking.py",
+          "target": "/app/12_build_exploratory_ncrna_ranking.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/13_build_methodological_report.py",
+          "target": "/app/13_build_methodological_report.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/15_build_rag_knowledge_base.py",
+          "target": "/app/15_build_rag_knowledge_base.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/16_rag_chat_engine.py",
+          "target": "/app/16_rag_chat_engine.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/17_validate_end_to_end.py",
+          "target": "/app/17_validate_end_to_end.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/18_build_final_project_package.py",
+          "target": "/app/18_build_final_project_package.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/19_build_software_user_guide_pdf.py",
+          "target": "/app/19_build_software_user_guide_pdf.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/20_build_final_technical_report.py",
+          "target": "/app/20_build_final_technical_report.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/21_build_scientific_manuscript_draft.py",
+          "target": "/app/21_build_scientific_manuscript_draft.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/22_add_references_to_manuscript.py",
+          "target": "/app/22_add_references_to_manuscript.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/23_build_submission_materials.py",
+          "target": "/app/23_build_submission_materials.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/24_final_delivery_check.py",
+          "target": "/app/24_final_delivery_check.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/25_train_graph_autoencoder.py",
+          "target": "/app/25_train_graph_autoencoder.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/26_validate_user_dataset.py",
+          "target": "/app/26_validate_user_dataset.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/27_link_user_data_to_ranking.py",
+          "target": "/app/27_link_user_data_to_ranking.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/28_build_user_rag_knowledge.py",
+          "target": "/app/28_build_user_rag_knowledge.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/29_user_rag_chat.py",
+          "target": "/app/29_user_rag_chat.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/30_build_v2_experimental_package.py",
+          "target": "/app/30_build_v2_experimental_package.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/31_generate_v2_guide_pdf.py",
+          "target": "/app/31_generate_v2_guide_pdf.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/32_fetch_prjna419326_metadata.py",
+          "target": "/app/32_fetch_prjna419326_metadata.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/33_analyze_prjna419326_metadata.py",
+          "target": "/app/33_analyze_prjna419326_metadata.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/34_create_prjna419326_experimental_design.py",
+          "target": "/app/34_create_prjna419326_experimental_design.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/35_download_prjna419326_mirnaseq.py",
+          "target": "/app/35_download_prjna419326_mirnaseq.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/36_download_prjna419326_mirnaseq_aria2.py",
+          "target": "/app/36_download_prjna419326_mirnaseq_aria2.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/37_validate_prjna419326_mirnaseq_fastq.py",
+          "target": "/app/37_validate_prjna419326_mirnaseq_fastq.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/38_light_qc_prjna419326_mirnaseq_fastq.py",
+          "target": "/app/38_light_qc_prjna419326_mirnaseq_fastq.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/39_detect_mirnaseq_adapter_candidates.py",
+          "target": "/app/39_detect_mirnaseq_adapter_candidates.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/40_trim_all_prjna419326_mirnaseq.py",
+          "target": "/app/40_trim_all_prjna419326_mirnaseq.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/41_qc_trimmed_prjna419326_mirnaseq.py",
+          "target": "/app/41_qc_trimmed_prjna419326_mirnaseq.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/42_collapse_trimmed_reads_build_count_matrix.py",
+          "target": "/app/42_collapse_trimmed_reads_build_count_matrix.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/43_screen_srna_drought_response.py",
+          "target": "/app/43_screen_srna_drought_response.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/44_map_srna_top500_to_rnacentral_sequences.py",
+          "target": "/app/44_map_srna_top500_to_rnacentral_sequences.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/45_build_prjna419326_experimental_srna_ranking.py",
+          "target": "/app/45_build_prjna419326_experimental_srna_ranking.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/46_generate_prjna419326_v3_methodological_report.py",
+          "target": "/app/46_generate_prjna419326_v3_methodological_report.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/47_build_v3_prjna419326_final_package.py",
+          "target": "/app/47_build_v3_prjna419326_final_package.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/48_inspect_v3_graph_inputs.py",
+          "target": "/app/48_inspect_v3_graph_inputs.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/48b_inspect_pyg_pt_content.py",
+          "target": "/app/48b_inspect_pyg_pt_content.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/48c_inspect_pyg_metadata_and_tables.py",
+          "target": "/app/48c_inspect_pyg_metadata_and_tables.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/49_build_v3_integrated_pyg_graph.py",
+          "target": "/app/49_build_v3_integrated_pyg_graph.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/50_validate_v3_graph_before_gae.py",
+          "target": "/app/50_validate_v3_graph_before_gae.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/51_train_v3_graph_autoencoder.py",
+          "target": "/app/51_train_v3_graph_autoencoder.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/52_prepare_prjna419326_rnaseq_download_plan.py",
+          "target": "/app/52_prepare_prjna419326_rnaseq_download_plan.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/53_inspect_prjna419326_rnaseq_download_plan.py",
+          "target": "/app/53_inspect_prjna419326_rnaseq_download_plan.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/54_download_prjna419326_rnaseq_aria2_validated.py",
+          "target": "/app/54_download_prjna419326_rnaseq_aria2_validated.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/55_validate_prjna419326_rnaseq_postdownload.py",
+          "target": "/app/55_validate_prjna419326_rnaseq_postdownload.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/56_prepare_maize_reference_for_rnaseq_quant.py",
+          "target": "/app/56_prepare_maize_reference_for_rnaseq_quant.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/57_quantify_prjna419326_rnaseq_salmon.py",
+          "target": "/app/57_quantify_prjna419326_rnaseq_salmon.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/58_rnaseq_gene_drought_de_screening.py",
+          "target": "/app/58_rnaseq_gene_drought_de_screening.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/59_integrate_srna_rnaseq_generate_supervised_labels.py",
+          "target": "/app/59_integrate_srna_rnaseq_generate_supervised_labels.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/60_train_srna_supervised_ml_candidate_labels.py",
+          "target": "/app/60_train_srna_supervised_ml_candidate_labels.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/61_train_srna_supervised_ml_antileakage_check.py",
+          "target": "/app/61_train_srna_supervised_ml_antileakage_check.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/62_build_v3_final_report_and_candidate_table.py",
+          "target": "/app/62_build_v3_final_report_and_candidate_table.py",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/62b_update_gui_project_realization_identity.py",
+          "target": "/app/62b_update_gui_project_realization_identity.py",
+          "read_only": true
+        }
+      ]
+    }
+  }
+}

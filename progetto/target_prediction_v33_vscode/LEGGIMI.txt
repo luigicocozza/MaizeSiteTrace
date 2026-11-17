@@ -1,0 +1,36 @@
+AI PRIMETTA V3.3
+
+Modulo di predizione esplorativa RNA-gene.
+
+GUI originale V3.2:
+http://localhost:8501
+
+Nuova GUI V3.3:
+http://localhost:8502
+
+INPUT
+
+1. FASTA small RNA 18-30 nt
+2. Trascrittoma FASTA di riferimento
+3. Mapping transcript_id -> gene_id
+4. Espressione RNA, facoltativa
+5. Espressione geni, facoltativa
+6. Metadati WW/DS, facoltativi
+
+OUTPUT
+
+01_rna_qc.tsv
+02_alignment_hypotheses.tsv
+03_historical_12mer_hypotheses.tsv
+04_gene_target_candidates.tsv
+05_rna_candidate_summary.tsv
+06_provenance_manifest.json
+LEGGIMI_RISULTATI.md
+
+LIMITI SCIENTIFICI
+
+Il sistema genera ipotesi computazionali.
+Non dimostra il targeting biologico.
+Non calcola p-value o FDR.
+Non addestra una nuova GNN RNA-gene.
+Gli ncRNA superiori a 30 nt richiedono un metodo diverso.

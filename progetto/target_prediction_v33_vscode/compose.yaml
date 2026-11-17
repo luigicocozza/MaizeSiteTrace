@@ -1,0 +1,17 @@
+name: ai_primetta_target_v33
+
+services:
+
+  prediction:
+
+    build: .
+
+    ports:
+      - "127.0.0.1:8502:8502"
+
+    volumes:
+      - ./runs:/app/runs
+      - ./references:/app/references:ro
+      - ..:/app/original_project:ro
+
+    restart: unless-stopped

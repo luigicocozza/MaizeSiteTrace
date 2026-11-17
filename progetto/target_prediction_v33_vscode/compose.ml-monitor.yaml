@@ -1,0 +1,58 @@
+{
+  "name": "ai_primetta_v33_ml_monitor",
+  "services": {
+    "monitor": {
+      "image": "ai_primetta_v33_ml_compat:19.5",
+      "pull_policy": "never",
+      "restart": "unless-stopped",
+      "user": "1000:1000",
+      "entrypoint": [
+        "python3",
+        "-B",
+        "/service/ml_monitor_service.py"
+      ],
+      "command": [
+        "--watch",
+        "--interval",
+        "5"
+      ],
+      "network_mode": "none",
+      "read_only": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "pids_limit": 128,
+      "mem_limit": "3g",
+      "cpus": 2.0,
+      "tmpfs": [
+        "/tmp:rw,nosuid,nodev,size=128m"
+      ],
+      "environment": {
+        "HOME": "/tmp",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326",
+          "target": "/project",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/target_prediction_v33_vscode/runs",
+          "target": "/runs"
+        },
+        {
+          "type": "bind",
+          "source": "/home/luigi/progetti/ncrna_rnacentral_ai_v3_prjna419326/target_prediction_v33_vscode/ml_monitor_service.py",
+          "target": "/service/ml_monitor_service.py",
+          "read_only": true
+        }
+      ]
+    }
+  }
+}

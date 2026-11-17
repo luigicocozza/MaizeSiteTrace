@@ -1,0 +1,7 @@
+# AI PRIMETTA - Runtime CPU ML/GNN
+FROM ncrna_rnacentral_ai_v3_prjna419326-maize-ncrna-gnn
+USER root
+ENV PIP_DISABLE_PIP_VERSION_CHECK=1 PIP_NO_CACHE_DIR=1 CUDA_VISIBLE_DEVICES=-1
+RUN python3 -m pip install --no-cache-dir --index-url https://download.pytorch.org/whl/cpu 'torch==2.11.0'
+RUN python3 -m pip install --no-cache-dir 'torch-geometric==2.8.1' 'networkx==3.6.1'
+USER root

@@ -1,0 +1,9 @@
+# AI PRIMETTA V3.2
+# Override della sola configurazione porte
+# Compose originale non modificato
+
+services:
+  maize-ncrna-gnn:
+    ports: !override
+      - {"mode": "ingress", "target": 8000, "published": "8000", "protocol": "tcp"}
+      - {"mode": "ingress", "target": 8501, "published": "8503", "protocol": "tcp", "host_ip": "127.0.0.1"}
